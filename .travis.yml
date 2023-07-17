@@ -1,0 +1,15 @@
+arch:
+  amd64
+
+os: linux
+dist: jammy
+before_install: 
+  - apt-get update && apt-get install maven openjdk-11-jdk -y
+
+script:
+  - mvn clean package -DskipTests=true
+  - mvn test
+
+
+after_success: 
+  - echo "Done!"
